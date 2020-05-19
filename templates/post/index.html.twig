@@ -3,36 +3,37 @@
 {% block title %}Post index{% endblock %}
 
 {% block body %}
+    <h1>Post index</h1>
 
-<div class="container">
-    <div class="row">
-        <div class="col-md-8">
-            <h1 class="mt-5">All Posts</h1>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Created_at</th>
+                <th>Content</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for post in posts %}
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.title }}</td>
+                <td>{{ post.createdAt ? post.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ post.content }}</td>
+                <td>
+                    <a href="{{ path('post_show', {'id': post.id}) }}">show</a>
+                    <a href="{{ path('post_edit', {'id': post.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
-            {% for post in posts %}
-                <div class="mt-5">
-                    <h2>{{ post.title }}</h2>
-                    <p class="text-muted">
-                        <span>{{ post.createdAt|date('Y-m-d H:i:s') }}</span>
-                        <span>- <a href="#">Edit</a></span>
-                    </p>
-                    <p class="mt-4">
-                        {{ post.content }}
-                    </p>
-                    <a href="#">Read more</a>
-                </div>
-            {% else %}
-                <div class="mt-5">no records found</div>
-            {% endfor %}
-        </div>
-
-        <div class="col-md-4">
-            <div class="p-4 mt-5 border shadow-sm rounded">
-                <h4 class="font-italic">About</h4>
-                <p class="mb-0">Etiam porta <em>sem malesuada magna</em> mollis euismod. Cras mattis consectetur purus sit amet fermentum. Aenean lacinia bibendum nulla sed consectetur.</p>
-                <a href="#" class="btn btn-outline-primary mt-3">Create</a>
-            </div>
-        </div>
-    </div>
-</div>
+    <a href="{{ path('post_new') }}">Create new</a>
 {% endblock %}
