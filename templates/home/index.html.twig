@@ -10,8 +10,10 @@
 {% endblock %}
 
 {% block body %}
-<p>Lorem ipsum dolor sit amet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-<p>These are some useful links:</p>
-<a class="btn btn-primary mr-2" href="#">Blog</a>
-<a class="btn btn-primary" href="#">Write</a>
+<div>
+    <p>Lorem ipsum dolor sit amet. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
+    <p>These are some useful links:</p>
+    <a class="btn btn-primary mr-2" href="{{ path('post_index') }}">Blog</a>
+    <a class="btn btn-primary" href="{{ path('post_new') }}">Write</a>
+</div>
 {% endblock %}

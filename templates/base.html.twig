@@ -10,13 +10,13 @@
     <body>
         <header class="navbar navbar-expand navbar-dark bg-dark">
             <nav class="container">
-                <a class="navbar-brand" href="#">Symfony Page</a>
+                <a class="navbar-brand" href="{{ path('home') }}">Symfony Page</a>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Blog</a>
+                        <a class="nav-link" href="{{ path('post_index') }}">Blog</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Write</a>
+                        <a class="nav-link" href="{{ path('post_new') }}">Write</a>
                     </li>
                 </ul>
             </nav>
